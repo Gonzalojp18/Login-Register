@@ -1,6 +1,10 @@
 const form = document.getElementById("form-register");
 
 form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    // console.log(e.target.querySelector('#user').value)
+    // console.log(e.target.querySelector('#email').value)
+    // console.log(e.target.querySelector('#password').value)
     try {
         const res = await fetch("http://localhost:4000/api/register", {
             method: "POST",
@@ -8,9 +12,9 @@ form.addEventListener("submit", async (e) => {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                user: e.target.children[0].querySelector('#user').value,
-                email: e.target.children[1].querySelector('#email').value,
-                password: e.target.children[2].querySelector('#password').value
+                user: e.target.querySelector('#user').value,
+                email: e.target.querySelector('#email').value,
+                password: e.target.querySelector('#password').value
             })
         });
 
@@ -23,7 +27,4 @@ form.addEventListener("submit", async (e) => {
     } catch (error) {
         console.error("Hubo un problema con la petición:", error);
     }
-
-
-
 });
