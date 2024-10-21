@@ -18,10 +18,8 @@ form.addEventListener("submit", async (e) => {
                 password: e.target.querySelector('#password').value
             })
         });
-
         if (!res.ok) return mensajeError.classList.toggle('mensaje-error', false);
         const data = await res.json();
-
         if(data.redirect){
             window.location.href = data.redirect;
         }

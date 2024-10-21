@@ -7,17 +7,16 @@ formLogin.addEventListener("submit", async (e) => {
     const user = e.target.querySelector("#user").value;
     const password = e.target.querySelector("#password").value;
 
-    // console.log(user);
-    // console.log(password);
-
-
+    console.log(user);
+    console.log(password);
     const res = await fetch("http://localhost:4000/api/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            user, password
+            user: e.target.querySelector('#user').value,
+            password: e.target.querySelector('#password').value
         })
     });
     if (!res.ok) return mensajeError.classList.toggle('mensaje-error', false);

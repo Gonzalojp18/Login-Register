@@ -1,4 +1,7 @@
 import bcryptjs from 'bcryptjs';
+import JsonWebToken  from 'jsonwebtoken';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const users = [{
     user: "Harry Potter",
@@ -6,9 +9,8 @@ const users = [{
     password: "9314",
 }]
 
-
+// LOGIN
 async function login(req, res){
-    console.log(req.body);
     const user = req.body.user;
     const password = req.body.password;
 
@@ -22,8 +24,23 @@ async function login(req, res){
     if(!userReview){
         return res.status(400).send({status: 'error', message: 'Error durante login'})
     }
-    const accessLogin = await bcryptjs.compare(password, userReview.password)
-    console.log(accessLogin)
+    const accessLogin = await bcryptjs.compare(password, userReview.password);
+    if(!accessLogin) {
+        return  res.status(400).send({status: 'error', message: 'Error durante login'})
+    }
+        const token = JsonWebToken.sign(
+            {user:userReview.user},
+            process.env.JWT_SECRET,
+            {expiresIn: process.env.JWT_EXPIRATION});
+
+        const cookieOption = {
+            expiresIn: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000),
+            path: "/"
+        }
+
+        res.cookie("jwt",token,cookieOption);
+        res.send({status:"ok",message:"Usuario logeado",redirect:"/admin"})
+
 
 }
 
