@@ -73,6 +73,9 @@ h1{
 }
 
 .hidd{
-    display: none;
     font-weight: bold;
+}
+
+.mensaje-error{
+    visibility: hidden;
 }

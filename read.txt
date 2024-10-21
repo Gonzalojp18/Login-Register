@@ -1,0 +1,10 @@
+Use express para crear el servidor. usando una instancia de express..."
+
+Seteo el puerto en el 4000 y habilito para que este escuche.
+
+Que sea una api significa que sera un servicio que tras bambalina este recibiendo informacion.
+
+
+Tendra estructura particular este sera practicamente instuitivo en como se comunicara....
+
+
