@@ -7,4 +7,6 @@ Que sea una api significa que sera un servicio que tras bambalina este recibiend
 
 Tendra estructura particular este sera practicamente instuitivo en como se comunicara....
 
+son pedazos de codigo que se encuentra entre la solicitud y la respuesta con el objetivo de controlar algunas informaciones. 
+
 

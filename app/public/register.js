@@ -7,7 +7,7 @@ form.addEventListener("submit", async (e) => {
     // console.log(e.target.querySelector('#user').value)
     // console.log(e.target.querySelector('#email').value)
     // console.log(e.target.querySelector('#password').value)
-        const res = await fetch("http://localhost:4000/api/register", {
+        const res = await fetch("http://localhost:3000/api/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

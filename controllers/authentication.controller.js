@@ -1,9 +1,11 @@
 import bcryptjs from 'bcryptjs';
 import JsonWebToken  from 'jsonwebtoken';
 import dotenv from 'dotenv';
+
+
 dotenv.config();
 
-const users = [{
+export const users = [{
     user: "Harry Potter",
     email: "camaradelossecretos@voldemort.si",
     password: "9314",
